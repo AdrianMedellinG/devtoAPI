@@ -15,7 +15,7 @@ app.use(express.json())
 //Middleware de routes (Posts)
 //!app.use("/posts", routerPost)
 //Middleware de routes (Users)
-//!app.use("/users", routerUser)
+app.use("/users", routerUser)
 //Middleware de routes (Auth)
 //!app.use("/auth", routerAuth)
 
