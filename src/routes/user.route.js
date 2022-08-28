@@ -1,4 +1,5 @@
 const express = require("express")
+const { get } = require("mongoose")
 const { createUser } = require("../usecases/user.usecase")
 
 const router = express.Router()
@@ -23,6 +24,7 @@ router.post("/", async (request, response) => {
     })
   }
 })
+
 
 module.exports = router
 

@@ -7,6 +7,33 @@ const createPost = async (data) => {
   return post
 }
 
+// All Get/Posts
+const allPost = (filters) => {
+    const post = Post.find(filters)
+    return post
+}
+    
+// Get/Post/:Id
+const getPostId = (id) => {
+    const post = Post.findById(id)
+    return post
+}
+
+//Actualizar
+const updatePost = (id,postData) => {
+
+    const post = Post.findByIdAndUpdate(id, postData, {returnDocument: "after"})
+    return post
+}
+// Delete
+const  deletePost = (id) => {
+    const post = Post.findByIdAndDelete(id)
+    return post
+}
 module.exports = {
-    createPost
+    createPost,
+    allPost,
+    getPostId,
+    updatePost,
+    deletePost
 }
