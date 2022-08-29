@@ -3,7 +3,7 @@ const router = express.Router()
 const {login} = require ("../usecases/user.usecase")
 
 
-router.post("/login", async (request, response) => {
+router.post("/", async (request, response) => {
     const { body } = request
     try{
       const token = await login (body.email, body.password)
