@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-const Post = require("../models/post.model")
-const createError = require('http-errors')
-const jwt = require("../lib/jwt.lib")
-
-const createPost = async (data) => {
-  const post = Post.create({...data })
-  return post
-}
-
-module.exports = {
-    createPost
-=======
 const Post = require("../models/post.model")
 const createError = require('http-errors')
 const jwt = require("../lib/jwt.lib")
@@ -49,5 +36,4 @@ module.exports = {
     getPostId,
     updatePost,
     deletePost
->>>>>>> 1e664c6c1a616e7fc5b5d263ed1f1ba2ae0e60bd
 }
