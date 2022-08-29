@@ -8,6 +8,7 @@ const routerPost = require("./routes/post.route")
 const routerUser = require("./routes/user.route")
 const routerAuth = require("./routes/auth.route")
 
+
 //Middlewares del json
 app.use(cors())
 app.use(express.json())
@@ -17,7 +18,7 @@ app.use("/posts", routerPost)
 //Middleware de routes (Users)
 app.use("/users", routerUser)
 //Middleware de routes (Auth)
-//!app.use("/auth", routerAuth)
+app.use("/auth", routerAuth)
 
 
 
