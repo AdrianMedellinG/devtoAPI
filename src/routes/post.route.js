@@ -91,7 +91,7 @@ router.patch("/:id", auth, async(request, response) => {
 
 })
 
-router.patch("/:id", async(request, response) => {
+router.patch("/reactions/:id", async(request, response) => {
     try {
         const { params, body } = request
         const post = await reactionPost (params.id, body)
