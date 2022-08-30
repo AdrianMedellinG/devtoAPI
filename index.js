@@ -9,15 +9,15 @@ const {
     DB_HOST,
     DB_NAME,
 } = process.env
-
+const port = process.env || 3000;
 const URL = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`
 //Conectando a base de datos
 mongoose.connect(URL)
 .then(()=>{
     console.log("Conectado a la base de datos de mongo")
     //Levantando el server
-    app.listen(8080, () =>{
-        console.log("Server Listening...")
+    app.listen(port, () =>{
+        console.log("Server Listening on port:", port)
     })
 })
 .catch((error)=>{
