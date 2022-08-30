@@ -1,6 +1,9 @@
 const express = require("express")
 const { get } = require("mongoose")
-const { createUser } = require("../usecases/user.usecase")
+const { createUser, 
+        allUser,
+        getUserId,
+        } = require("../usecases/user.usecase")
 
 const router = express.Router()
 
@@ -25,6 +28,43 @@ router.post("/", async (request, response) => {
   }
 })
 
+router.get("/", async (request, response) => {
+    try {
+        const{query} = request
+        const user = await allUser(query)
+        response.json({
+            sucess: true, 
+            data: {
+                user
+            }
+        })
+    }catch(error) {
+        response.status(400)
+        response.json({
+            sucess: false, 
+            message: error.essage
+        })
+    }
+})
+
+router.get("/:id", async(request, response) => {
+    try {
+        const { params} = request
+        const user = await getUserId(params.id)
+        response.json({
+            sucess: true, 
+            data: {
+                user
+            }
+        })
+    }catch(error) {
+        response.status(400)
+        response.json({
+            sucess: false, 
+            message: error.message
+        })
+   }
+})
 
 module.exports = router
 
