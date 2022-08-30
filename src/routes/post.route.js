@@ -3,7 +3,8 @@ const auth = require("../middlewares/auth.middleware")
 const { createPost, 
     allPost, 
     getPostId, 
-    updatePost, 
+    updatePost,
+    reactionPost, 
     deletePost 
     } = require("../usecases/post.usecase")
 
@@ -73,6 +74,27 @@ router.patch("/:id", auth, async(request, response) => {
     try {
         const { params, body } = request
         const post = await updatePost (params.id, body)
+        
+        response.json({
+            sucess: true, 
+            data: {
+                post
+            }
+        })
+    }catch(error) {
+        response.status(400)
+        response.json({
+            sucess: false, 
+            message: error.message
+        })
+   }
+
+})
+
+router.patch("/:id", async(request, response) => {
+    try {
+        const { params, body } = request
+        const post = await reactionPost (params.id, body)
         
         response.json({
             sucess: true, 

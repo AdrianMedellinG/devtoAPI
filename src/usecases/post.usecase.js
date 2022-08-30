@@ -25,6 +25,14 @@ const updatePost = (id,postData) => {
     const post = Post.findByIdAndUpdate(id, postData, {returnDocument: "after"})
     return post
 }
+
+//Reaction
+const reactionPost = (id,postData) => {
+
+    const post = Post.findByIdAndUpdate(id, postData, {returnDocument: "after"})
+    return post
+}
+
 // Delete
 const  deletePost = (id) => {
     const post = Post.findByIdAndDelete(id)
@@ -35,5 +43,6 @@ module.exports = {
     allPost,
     getPostId,
     updatePost,
+    reactionPost,
     deletePost
 }

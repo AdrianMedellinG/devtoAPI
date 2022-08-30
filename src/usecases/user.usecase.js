@@ -22,7 +22,21 @@ const login = async (email, textPlainPassword)=>{
   return token
 }
 
+// All Get/Users
+const allUser = (filters) => {
+    const user = User.find(filters)
+    return user
+}
+
+
+// Get/User/:Id
+const getUserId = (id) => {
+    const user = User.findById(id)
+    return user
+}
 module.exports = {
   createUser,
+  allUser,
+  getUserId,
   login
 }
